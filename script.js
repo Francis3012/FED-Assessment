@@ -1,13 +1,48 @@
-const Products = {
+  const Products = {
 
   /**
    * Takes a JSON representation of the products and renders cards to the DOM
    * @param {Object} productsJson 
    */
   displayProducts: productsJson => {
-
     // Render the products here
+    const data = productsJson.data.products.edges;
+    const mainContainer = document.getElementById("myData");
+    for (var i = 0; i < data.length; i++) {
+      // Create a card element to attach all child elements too
+      let div = document.createElement("div");
+      div.classList.add("card");
 
+      // Create a image element and add the source attribute then append the image to the card div
+      let image = document.createElement("img");
+      image.src = data[i].node.images.edges[0].node.originalSrc;
+      image.classList.add("card__image");
+      div.appendChild(image);
+      
+      // Create a h4 element and add the title text then append the title to the card div
+      let title = document.createElement("h4");
+      title.innerText = data[i].node.title;
+      image.classList.add("card__title");
+      div.appendChild(title);
+
+      // Create a p element and add the price text then append the title to the card div
+      let price = document.createElement("p");
+      let priceInfo = data[i].node.priceRange.minVariantPrice;
+      price.innerText = `${priceInfo.currencyCode === 'GBP' ? '£' : '$'}${priceInfo.amount}`;
+      div.appendChild(price);
+
+      // Create a two div elements and the tags text to the inner one then append the tags to the card div
+      let cardTags = document.createElement("div");
+      cardTags.classList.add("card__tags");
+      let tags = document.createElement("div");
+      tags.classList.add("tag");
+      tags.innerText = `#${data[i].node.tags}`;
+      cardTags.appendChild(tags);
+      div.appendChild(cardTags);
+
+      // Append the card div to the main html container
+      mainContainer.appendChild(div);
+    }
   },
 
   state: {

@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  background-color: #fafafa;
 }
 
 .title-bar {
@@ -35,5 +36,103 @@ body {
 
 .title-bar__button:hover {
   opacity: 75%;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 800px) {
+  main {
+    margin-top: 2em;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #eeeeee;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+@media (min-width: 600px) {
+  .card {
+    max-width: 30%;
+  }
+}
+
+.card__image {
+  height: 100px;
+  width: auto;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+@media (min-width: 400px) {
+  .card__image {
+    height: 125px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .card__image {
+    height: 200px;
+  }
+}
+
+.card__tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card__tags > .tag {
+  padding: 5px;
+  background-color: #bcbcbc;
+  color: #fff;
+  border-radius: 1em;
+  margin: 5px;
+  text-transform: lowercase;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: ease-in-out .5s;
+  transition: ease-in-out .5s;
 }
 /*# sourceMappingURL=style.css.map */
